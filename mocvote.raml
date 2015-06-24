@@ -1,0 +1,79 @@
+#%RAML 0.8
+title: MOC Votes
+version: v1.0
+baseUri: https://masterofcode.com
+mediaType: application/json
+documentation:
+  - title: Documentation Notes
+    content: |
+      API Prototype for MOC Votes application
+
+/votes:
+  description: This endpoint is used to add and retrieve votes.
+  get:
+    description: Get votes from the list of votes.
+    headers:
+      auth_token:
+        description: The user's authentication token.
+        type: string
+        required: true
+        example: '0da0055c-e606-4e27-b888-bcfefce60d86'
+   
+    responses:
+      200:
+        body:
+          application/json:
+            schema: !include schemas/votes.schema
+            example: !include examples/votes/votes.get.example 
+    
+           
+  post:
+    description: Add one or more new votes to the list of votes.
+    headers:
+      auth_token:
+        description: The user's authentication token.
+        type: string
+        required: true
+        example: '0da0055c-e606-4e27-b888-bcfefce60d86'
+    body:
+      application/json:
+        schema: !include schemas/votes.schema
+        example: !include examples/votes/votes.post.example
+    responses:
+      200:
+        body:
+          application/json:
+            schema: !include schemas/vote.schema
+            example: !include examples/votes/vote.get.example
+     
+     
+
+  /{voteId}:
+    description:  Retrieve   a specific vote using its ID
+    uriParameters: 
+      voteId:
+        displayName: vote ID
+        type: integer
+    get:
+      description: Get a single vote
+      headers:
+
+        auth_token:
+          description: The user's authentication token.
+          type: string
+          required: true
+          example: '0da0055c-e606-4e27-b888-bcfefce60d86'
+
+      queryParameters:
+        
+        voteId:
+          description: The ID of the vote
+          type: integer
+          required: true
+      
+      responses:
+        200:
+          body:
+            application/json:
+              schema: !include schemas/vote.schema
+              example: !include examples/votes/vote.get.example

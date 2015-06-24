@@ -1,0 +1,33 @@
+{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "properties": {
+    "votes": {
+      "id": "votes",
+      "type": "array",
+      "items": {
+        "id": "0",
+        "type": "object",
+        "properties": {
+          "id": {
+            "id": "id",
+            "type": "integer"
+          },
+          "name": {
+            "id": "name",
+            "type": "string"
+          }
+        
+        },
+        "required": [
+          "name",
+          "id"
+        ]
+      },
+      "required":[
+        "1"
+      ]
+    }
+  }
+}
