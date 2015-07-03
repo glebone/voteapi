@@ -1,7 +1,8 @@
 {
   "votes": [
     {
-      "name": "Do you like new office?"
+      "name": "office",
+      "type" : 0
     }
   ]
 }

@@ -160,61 +160,92 @@
           "name": {
             "id": "name",
             "type": "string"
-          }
+          },
+           "type" : {
+             "id" : "type",
+             "type" : "integer"
+
+          },
+          "result" : {
+             "id" : "result",
+             "type": "string"
+          }  
         
         },
         "required": [
           "name",
-          "id"
+          "id",
+          "type"
         ]
-      }
+      },
+      "required":[
+        "1"
+      ]
     }
   }
 }
 </code></pre><p><strong>Example</strong>:</p><pre><code>{
-    "vote": {
+  "votes": [ 
+    {
       "id": "1",
-      "name": "Do you go to hackathon ?"
+      "name": "hackathon",
+      "type" : 0,
+      "result" : "{&#x27;true&#x27; : 0, &#x27;false&#x27;: &#x27;1&#x27;}"
+     },
+     {
+      "id": "office",
+      "name": "office",
+      "type" : 0,
+      "result" : "{&#x27;true&#x27; : 0, &#x27;false&#x27;: &#x27;1&#x27;}"
      }
-  
+  ]
 }
 </code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="_votes_post"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_post">post</span> <span class="parent"></span>/votes</h4></div><div class="modal-body"><div class="alert alert-info"><p>Add one or more new votes to the list of votes.</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_votes_post_request" data-toggle="tab">Request</a></li><li><a href="#_votes_post_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_votes_post_request"><h3>Headers</h3><ul><li><strong>auth_token</strong>: <em>required (string )</em><p>The user&#39;s authentication token.</p><p><strong>Example</strong>:</p><pre>0da0055c-e606-4e27-b888-bcfefce60d86</pre></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "/",
   "type": "object",
   "properties": {
-    "votes": {
-      "id": "votes",
-      "type": "array",
-      "items": {
-        "id": "0",
-        "type": "object",
-        "properties": {
-          "id": {
-            "id": "id",
-            "type": "integer"
-          },
-          "name": {
-            "id": "name",
-            "type": "string"
-          }
-        
+    "vote": {
+      "id": "vote",
+      "type": "object",
+      "properties": {
+        "id": {
+          "id": "id",
+          "type": "integer"
         },
-        "required": [
-          "name",
-          "id"
-        ]
-      }
+        "name": {
+          "id": "name",
+          "type": "string"
+        },
+        "type" : {
+            "id" : "type",
+            "type" : "integer"
+
+        },
+        "result" : {
+            "id" : "result",
+            "type": "string"
+        }  
+      },
+      "required": [
+        "name",
+        "id",
+        "type",
+        "result"
+      ]
     }
-  }
-}
-</code></pre><p><strong>Example</strong>:</p><pre><code>{
-  "votes": [
-    {
-      "name": "Do you like new office?"
-    }
+  },
+  "required": [
+    "vote"
   ]
 }
+</code></pre><p><strong>Example</strong>:</p><pre><code>{  "vote": 
+    {
+      "name": "office"
+      "type" : 0
+
+    }
+ } 
 </code></pre></div><div class="tab-pane" id="_votes_post_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "/",
@@ -231,11 +262,22 @@
         "name": {
           "id": "name",
           "type": "string"
-        }
+        },
+        "type" : {
+            "id" : "type",
+            "type" : "integer"
+
+        },
+        "result" : {
+            "id" : "result",
+            "type": "string"
+        }  
       },
       "required": [
         "name",
-        "id"
+        "id",
+        "type",
+        "result"
       ]
     }
   },
@@ -246,11 +288,11 @@
 </code></pre><p><strong>Example</strong>:</p><pre><code>{
   "vote": {
     "id": "1",
-    "name": "Do you go to hackathon ?"
-   
+    "name": "Hackathon",
+    "type" : 0,
+    "result" : "{&#x27;true&#x27; : 0, &#x27;false&#x27;: &#x27;1&#x27;}"
   }
-}
-</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__votes__voteId_"><span class="parent">/votes</span>/{voteId}</a> <span class="methods"><a href="#_votes__voteId__get"><span class="badge badge_get">get</span></a></span></h4></div><div id="panel__votes__voteId_" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Retrieve a specific vote using its ID</p></div><div class="list-group"><div onclick="window.location.href = '#_votes__voteId__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get a single vote</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_votes__voteId__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/votes</span>/{voteId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get a single vote</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_votes__voteId__get_request" data-toggle="tab">Request</a></li><li><a href="#_votes__voteId__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_votes__voteId__get_request"><h3>URI Parameters</h3><ul><li><strong>vote ID</strong>: <em>required (integer )</em></li></ul><h3>Headers</h3><ul><li><strong>auth_token</strong>: <em>required (string )</em><p>The user&#39;s authentication token.</p><p><strong>Example</strong>:</p><pre>0da0055c-e606-4e27-b888-bcfefce60d86</pre></li></ul><h3>Query Parameters</h3><ul><li><strong>voteId</strong>: <em>required (integer )</em><p>The ID of the vote</p></li></ul></div><div class="tab-pane" id="_votes__voteId__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+}</code></pre></div></div></div></div></div></div></div><div class="panel panel-white"><div class="panel-heading"><h4 class="panel-title"><a class="collapsed" data-toggle="collapse" href="#panel__votes__voteId_"><span class="parent">/votes</span>/{voteId}</a> <span class="methods"><a href="#_votes__voteId__get"><span class="badge badge_get">get</span></a> <a href="#_votes__voteId__put"><span class="badge badge_put">put</span></a></span></h4></div><div id="panel__votes__voteId_" class="panel-collapse collapse"><div class="panel-body"><div class="resource-description"><p>Retrieve a specific vote using its ID</p></div><div class="list-group"><div onclick="window.location.href = '#_votes__voteId__get'" class="list-group-item"><span class="badge badge_get">get</span><div class="method_description"><p>Get a single vote</p></div><div class="clearfix"></div></div><div onclick="window.location.href = '#_votes__voteId__put'" class="list-group-item"><span class="badge badge_put">put</span><div class="method_description"><p>Make a vote action for current question</p></div><div class="clearfix"></div></div></div></div></div><div class="modal fade" tabindex="0" id="_votes__voteId__get"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_get">get</span> <span class="parent">/votes</span>/{voteId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Get a single vote</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_votes__voteId__get_request" data-toggle="tab">Request</a></li><li><a href="#_votes__voteId__get_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_votes__voteId__get_request"><h3>URI Parameters</h3><ul><li><strong>vote ID</strong>: <em>required (integer )</em></li></ul><h3>Headers</h3><ul><li><strong>auth_token</strong>: <em>required (string )</em><p>The user&#39;s authentication token.</p><p><strong>Example</strong>:</p><pre>0da0055c-e606-4e27-b888-bcfefce60d86</pre></li></ul><h3>Query Parameters</h3><ul><li><strong>voteId</strong>: <em>required (integer )</em><p>The ID of the vote</p></li></ul></div><div class="tab-pane" id="_votes__voteId__get_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "/",
   "type": "object",
@@ -266,11 +308,22 @@
         "name": {
           "id": "name",
           "type": "string"
-        }
+        },
+        "type" : {
+            "id" : "type",
+            "type" : "integer"
+
+        },
+        "result" : {
+            "id" : "result",
+            "type": "string"
+        }  
       },
       "required": [
         "name",
-        "id"
+        "id",
+        "type",
+        "result"
       ]
     }
   },
@@ -281,8 +334,88 @@
 </code></pre><p><strong>Example</strong>:</p><pre><code>{
   "vote": {
     "id": "1",
-    "name": "Do you go to hackathon ?"
-   
+    "name": "Hackathon",
+    "type" : 0,
+    "result" : "{&#x27;true&#x27; : 0, &#x27;false&#x27;: &#x27;1&#x27;}"
   }
+}</code></pre></div></div></div></div></div></div><div class="modal fade" tabindex="0" id="_votes__voteId__put"><div class="modal-dialog"><div class="modal-content"><div class="modal-header"><button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button><h4 class="modal-title" id="myModalLabel"><span class="badge badge_put">put</span> <span class="parent">/votes</span>/{voteId}</h4></div><div class="modal-body"><div class="alert alert-info"><p>Make a vote action for current question</p></div><ul class="nav nav-tabs"><li class="active"><a href="#_votes__voteId__put_request" data-toggle="tab">Request</a></li><li><a href="#_votes__voteId__put_response" data-toggle="tab">Response</a></li></ul><div class="tab-content"><div class="tab-pane active" id="_votes__voteId__put_request"><h3>URI Parameters</h3><ul><li><strong>vote ID</strong>: <em>required (integer )</em></li></ul><h3>Headers</h3><ul><li><strong>auth_token</strong>: <em>required (string )</em><p>The user&#39;s authentication token.</p><p><strong>Example</strong>:</p><pre>0da0055c-e606-4e27-b888-bcfefce60d86</pre></li></ul><h3>Query Parameters</h3><ul><li><strong>voteId</strong>: <em>required (integer )</em><p>The ID of the vote</p></li></ul><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "properties": {
+    "vote": {
+      "id": "vote",
+      "type": "object",
+      "properties": {
+        "id": {
+          "id": "id",
+          "type": "integer"
+        },
+        "value": {
+          "id": "name",
+          "type": "string"
+        }
+      },
+      "required": [
+        "value"
+      ]
+    }
+  },
+  "required": [
+    "vote"
+  ]
 }
-</code></pre></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#_votes">/votes</a></li></ul></div></div></div></div></body></html>
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
+  "vote": 
+    {
+      "name": "office"
+      "value" : "1"
+
+    }
+}</code></pre></div><div class="tab-pane" id="_votes__voteId__put_response"><h2>HTTP status code <a href="http://httpstatus.es/200" target="_blank">200</a></h2><h3>Body</h3><p><strong>Type: application/json</strong></p><p><strong>Schema</strong>:</p><pre><code>{
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "/",
+  "type": "object",
+  "properties": {
+    "vote": {
+      "id": "vote",
+      "type": "object",
+      "properties": {
+        "id": {
+          "id": "id",
+          "type": "integer"
+        },
+        "name": {
+          "id": "name",
+          "type": "string"
+        },
+        "type" : {
+            "id" : "type",
+            "type" : "integer"
+
+        },
+        "result" : {
+            "id" : "result",
+            "type": "string"
+        }  
+      },
+      "required": [
+        "name",
+        "id",
+        "type",
+        "result"
+      ]
+    }
+  },
+  "required": [
+    "vote"
+  ]
+}
+</code></pre><p><strong>Example</strong>:</p><pre><code>{
+  "vote": {
+    "id": "1",
+    "name": "Hackathon",
+    "type" : 0,
+    "result" : "{&#x27;true&#x27; : 0, &#x27;false&#x27;: &#x27;1&#x27;}"
+  }
+}</code></pre></div></div></div></div></div></div></div></div></div></div></div><div class="col-md-3"><div id="sidebar" class="hidden-print affix" role="complementary"><ul class="nav nav-pills nav-stacked"><li><a href="#_votes">/votes</a></li></ul></div></div></div></div></body></html>

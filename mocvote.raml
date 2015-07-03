@@ -37,8 +37,8 @@ documentation:
         example: '0da0055c-e606-4e27-b888-bcfefce60d86'
     body:
       application/json:
-        schema: !include schemas/votes.schema
-        example: !include examples/votes/votes.post.example
+        schema: !include schemas/vote.schema
+        example: !include examples/votes/vote.post.example
     responses:
       200:
         body:
@@ -77,3 +77,40 @@ documentation:
             application/json:
               schema: !include schemas/vote.schema
               example: !include examples/votes/vote.get.example
+
+    put:
+      description: Make a vote action for current question
+      headers:
+        auth_token:
+          description: The user's authentication token.
+          type: string
+          required: true
+          example: '0da0055c-e606-4e27-b888-bcfefce60d86'
+
+      queryParameters:
+        
+        voteId:
+          description: The ID of the vote
+          type: integer
+          required: true
+
+      body:
+        application/json:
+          schema: !include schemas/vote_put.schema
+          example: !include examples/votes/vote.put.example
+     
+      responses:
+        200:
+          body:
+            application/json:
+              schema: !include schemas/vote.schema
+              example: !include examples/votes/vote.get.example
+
+
+    
+
+
+
+
+
+

@@ -1,7 +1,8 @@
-{  "vote": 
+{
+  "vote": 
     {
       "name": "office"
-      "type" : 0
+      "value" : "1"
 
     }
- } 
+}

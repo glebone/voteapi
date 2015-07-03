@@ -17,12 +17,22 @@
           "name": {
             "id": "name",
             "type": "string"
-          }
+          },
+           "type" : {
+             "id" : "type",
+             "type" : "integer"
+
+          },
+          "result" : {
+             "id" : "result",
+             "type": "string"
+          }  
         
         },
         "required": [
           "name",
-          "id"
+          "id",
+          "type"
         ]
       },
       "required":[

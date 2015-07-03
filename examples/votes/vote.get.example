@@ -1,7 +1,8 @@
 {
   "vote": {
     "id": "1",
-    "name": "Do you go to hackathon ?"
-   
+    "name": "Hackathon",
+    "type" : 0,
+    "result" : "{'true' : 0, 'false': '1'}"
   }
 }
